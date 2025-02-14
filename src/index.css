@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@layer components {
+    .hero {
+        background-image: url("https://s3-alpha-sig.figma.com/img/caf5/016f/97f154adfd88d0e48d9a7fc87e5ab035?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R2gcha0dHPc2VudR604fwlkVChWIUJ~YvS0cteaJXcaSz~ILkwXgk5gnHsUNL-joS8I9-EJfRkp3FC50zZZ6q6kSszMSJWYw27RjKGWwhw4mrclcliDHHXmSFZucENLkoaL30ZJ6BmAsS6eMCQdySO-OWAiy5rUua13gLNmvCWUIxRXCbtEnIhLIDqLA30mXRJFaChClMhcn2KqQff8zivK0JjAxpBiwNaWoUqhj262R-Yj8iejkjW0NzMmUrh61Z70ilwuk8jhUhaRsg3Qhx8I98~dDYNV1mIEb-bOWtQBeSl4t~JiwwyxBpZOCJdrgO~PHvbdGq3llCWZBmlVh1w__");
+        background-image: 1920px;
+        height: 400px;
+    }
+}
