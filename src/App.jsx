@@ -17,7 +17,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/:id"
+          path="/details/:id"
           element={
             <MainLayouts>
               <Details></Details>

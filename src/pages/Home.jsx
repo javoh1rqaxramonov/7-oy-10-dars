@@ -3,10 +3,14 @@ import Carousel from "../components/Carousel";
 import axios from "axios";
 import eye from "../assets/Eye.svg";
 import Pagination from "@mui/material/Pagination";
+import Details from "./Details";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -23,6 +27,9 @@ function Home() {
       });
   }, [page]);
 
+  function handleNavigate(id) {
+    navigate(`/details/${id}`);
+  }
   return (
     <div className="max-w-[1920px]">
       <div className="hero">
@@ -59,12 +66,18 @@ function Home() {
         </div>
         <div className="mx-auto max-w-[1232px]">
           {data.map((value, index) => (
-            <div key={index} className="bg-div rounded-b flex">
+            <div
+              onClick={() => handleNavigate(value.id)}
+              key={index}
+              className="bg-div rounded-b flex"
+            >
               <div className="max-w-[445px] w-full p-4 flex items-center gap-x-4 border-b border-[#515151]">
                 <img src={value.image} alt="" className="w-[50px]" />
                 <div className="flex flex-col">
-                  <strong className="uppercase text-white">{value.symbol}</strong>
-                  <small className="text-text">{value.name}</small>
+                  <strong className="uppercase text-white">
+                    {value.symbol}
+                  </strong>
+                  <small className="text-white">{value.name}</small>
                 </div>
               </div>
               <div className="max-w-[264px] w-full flex justify-end items-center border-b border-[#515151]">
@@ -76,7 +89,9 @@ function Home() {
                 <img src={eye} alt="" />
                 <strong
                   className={
-                    value.market_cap_change_percentage_24h < 0 ? "text-red-500" : "text-green-500"
+                    value.market_cap_change_percentage_24h < 0
+                      ? "text-red-500"
+                      : "text-green-500"
                   }
                 >
                   {value.market_cap_change_percentage_24h < 0
@@ -89,13 +104,13 @@ function Home() {
               </div>
             </div>
           ))}
-            <Pagination
-              count={10}
-              page={page}
-              onChange={(e, value) => setPage(value)}
-              color="primary"
-              className="flex text-blue-600 justify-center mt-5 pb-5"
-            />
+          <Pagination
+            count={10}
+            page={page}
+            onChange={(e, value) => setPage(value)}
+            color="primary"
+            className="flex text-blue-600 justify-center mt-5 pb-5"
+          />
         </div>
       </div>
     </div>
